@@ -17,7 +17,7 @@ class SearchForm extends Component {
     this.props.onSearch && this.props.onSearch(this.state.query);
   };
 
-  handleKeyDown = (event) => {
+  handlePressEnter = (event) => {
     if (event.keyCode === 13) {
       this.handleSearch();
     }
@@ -30,7 +30,7 @@ class SearchForm extends Component {
           type="text"
           value={this.state.query}
           onChange={this.handleInputChange}
-          onKeyDown={this.handleKeyDown}
+          onPressEnter={this.handlePressEnter}
         />
         <button onClick={this.handleSearch}>Search</button>
       </div>
