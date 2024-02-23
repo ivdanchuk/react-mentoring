@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Counter />
+        <Counter initValue={10} />
       </div>
     );
   }
