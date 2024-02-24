@@ -1,5 +1,5 @@
 import { Component } from "react";
-import "./App.css";
+import "./css/App.css";
 import Counter from "./components/Counter";
 import SearchForm from "./components/SearchForm";
 import GenreSelect from "./components/GenreSelect";
@@ -14,13 +14,14 @@ class App extends Component {
   };
 
   render() {
-    const genres = ["Action", "Comedy", "Drama", "Horror"];
+    const genres = ["ALL", "Crime", "Comedy", "Drama", "Horror"];
     const selectedGenre = "Comedy";
 
     return (
-      <div className="App">
-        {/* <Counter></Counter> */}
-        {/* <SearchForm initialQuery="" onSearch={this.handleSearch} /> */}
+      <div>
+        <div className="header">
+          <SearchForm initialQuery="" onSearch={this.handleSearch} />
+        </div>
         <GenreSelect
           genres={genres}
           selectedGenre={selectedGenre}

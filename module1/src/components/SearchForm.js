@@ -25,14 +25,14 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="search-container">
         <input
           type="text"
           value={this.state.query}
           onChange={this.handleInputChange}
-          onPressEnter={this.handlePressEnter}
+          onKeyDown={this.handlePressEnter}
         />
-        <button onClick={this.handleSearch}>Search</button>
+        <button onClick={this.handleSearch}>SEARCH</button>
       </div>
     );
   }
