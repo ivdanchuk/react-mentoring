@@ -1,8 +1,8 @@
 import { Component } from "react";
 import "./css/App.css";
-import Counter from "./components/Counter";
 import SearchForm from "./components/SearchForm";
 import GenreSelect from "./components/GenreSelect";
+import Counter from "./components/Counter";
 
 class App extends Component {
   handleSearch = (query) => {
@@ -27,6 +27,7 @@ class App extends Component {
           selectedGenre={selectedGenre}
           onSelect={this.handleSelect}
         />
+        <Counter initValue={10}></Counter>
       </div>
     );
   }
