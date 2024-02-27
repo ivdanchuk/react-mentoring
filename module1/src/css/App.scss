@@ -25,3 +25,23 @@
   border: none;
   color: white;
 }
+.movie-genre {
+  display: flex;
+  //justify-content: space-around;
+
+  .genre-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s all;
+
+    &.active {
+      color: red;
+      //background-color: lightgrey;
+    }
+
+    &:hover {
+      // color: white;
+      // background-color: grey;
+    }
+  }
+}
