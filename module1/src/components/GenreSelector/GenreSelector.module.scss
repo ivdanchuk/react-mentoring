@@ -1,0 +1,13 @@
+.movie-genre {
+  display: flex;
+
+  .genre-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s all;
+
+    &.active {
+      color: red;
+    }
+  }
+}

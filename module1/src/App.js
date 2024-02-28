@@ -1,22 +1,21 @@
-import { Component } from "react";
-import "./css/App.scss";
-import SearchForm from "./components/SearchForm";
-import GenreSelect from "./components/GenreSelect";
-import Counter from "./components/Counter";
+    import { Component } from "react";
+    import "./styles/App.scss";
+    import SearchForm from "./components/SearchForm/SearchForm";
+    import GenreSelector from "./components/GenreSelector/GenreSelector";
+    import Counter from "./components/Counter/Counter";
+    import { GENRES } from "./constants/Constants";
 
-class App extends Component {
-  state = {
-    genres: ["ALL", "Crime", "Comedy", "Drama", "Horror"],
-    selectedGenre: "Comedy",
-  };
+    class App extends Component {
+      state = {
+        genres: GENRES,
+        selectedGenre: "Comedy",
+      };
 
-  handleSearch = (query) => {
-    console.log("Searching:", query);
-  };
+      handleSearch = (query) => {};
 
-  handleSelect = (genre) => {
-    this.setState({ selectedGenre: genre });
-  };
+      handleSelect = (genre) => {
+        this.setState({ selectedGenre: genre });
+      };
 
   render() {
     return (
@@ -24,7 +23,7 @@ class App extends Component {
         <div className="header">
           <SearchForm initialQuery="" onSearch={this.handleSearch} />
         </div>
-        <GenreSelect
+        <GenreSelector
           genres={this.state.genres}
           selectedGenre={this.state.selectedGenre}
           onSelect={this.handleSelect}
@@ -37,4 +36,4 @@ class App extends Component {
   }
 }
 
-export default App;
+    export default App;
