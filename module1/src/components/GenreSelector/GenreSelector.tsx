@@ -1,7 +1,7 @@
 import React from "react";
 import "./GenreSelector.scss"
 
-type GenreProps = {
+export type GenreProps = {
     genres: string[],
     selectedGenre: string,
     onSelect: Function
