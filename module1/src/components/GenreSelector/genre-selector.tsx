@@ -1,5 +1,4 @@
-import React from "react";
-import "./GenreSelector.scss"
+import "./genre-selector.scss"
 
 export type GenreProps = {
     genres: string[],
@@ -22,5 +21,3 @@ export const GenreSelector = (genreProps: GenreProps) => {
         </div>
     );
 }
-
-export default GenreSelector;

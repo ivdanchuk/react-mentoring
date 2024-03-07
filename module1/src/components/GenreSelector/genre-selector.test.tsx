@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import GenreSelector, { GenreProps } from './GenreSelector';
+import { GenreSelector, GenreProps } from './genre-selector';
 
 afterEach(cleanup);
 

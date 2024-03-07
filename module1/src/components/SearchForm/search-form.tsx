@@ -1,22 +1,22 @@
 import {useState} from "react";
-import "./SearchForm.scss"
+import "./search-form.scss"
 
-type SearchProps = {
+interface ISearchProps {
     initialQuery: string,
     onSearch: Function
 }
-export const SearchForm = (props: SearchProps) => {
-    const [query, SetQuery] = useState(props.initialQuery || "Search movie ...");
+export const SearchForm = ({initialQuery, onSearch}:ISearchProps) => {
+    const [query, SetQuery] = useState(initialQuery || "Search movie ...");
     let handleInputChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
         SetQuery(event.target.value);
     };
 
     let handleSearch = () => {
-        props.onSearch && props.onSearch(query);
+        onSearch && onSearch(query);
     };
 
-    let handlePressEnter = (event: { keyCode: number; }) => {
-        if (event.keyCode === 13) {
+    let handlePressEnter = ({ key}:React.KeyboardEvent) => {
+        if (key === "Enter") {
             handleSearch();
         }
     };
@@ -27,11 +27,9 @@ export const SearchForm = (props: SearchProps) => {
                 type="text"
                 value={query}
                 onChange={handleInputChange}
-                onKeyDownCapture={handlePressEnter}
+                onKeyDownCapture={(e) => handlePressEnter(e)}
             />
             <button onClick={handleSearch}>SEARCH</button>
         </div>
     );
 }
-
-export default SearchForm;
