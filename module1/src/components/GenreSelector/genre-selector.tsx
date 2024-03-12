@@ -1,6 +1,6 @@
 import "./genre-selector.scss"
 
-export type GenreProps = {
+export interface GenreProps {
     genres: string[],
     selectedGenre: string,
     onSelect: Function

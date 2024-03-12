@@ -1,0 +1,28 @@
+.movie-tile {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-item {
+  width: 33.33%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.poster {
+  width: 100%;
+}
+
+.movie-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+}
+
+.release-year {
+}
+
+.genres {
+}

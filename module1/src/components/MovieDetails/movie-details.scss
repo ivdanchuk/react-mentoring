@@ -1,0 +1,33 @@
+.movie-details {
+  display: flex;
+  align-items: flex-start;
+
+  .movie-details__poster {
+    margin-right: 2em;
+  }
+
+  .movie-details__info {
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1em;
+    align-items: center;
+
+    .movie-details__year,
+    .movie-details__rating,
+    .movie-details__genre {
+      display: inline-block;
+      margin: 0;
+    }
+
+    .movie-details__title {
+      grid-column: span 2;
+      margin: 0;
+    }
+
+    .movie-details__description {
+      grid-column: span 2;
+      margin-top: 1em;
+    }
+  }
+}
