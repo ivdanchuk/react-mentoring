@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchForm/> checks initial props 1`] = `
+<div>
+  <div
+    class="search-container"
+  >
+    <input
+      type="text"
+      value="text"
+    />
+    <button>
+      SEARCH
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<SearchForm/> checks input change 1`] = `
+<div>
+  <div
+    class="search-container"
+  >
+    <input
+      type="text"
+      value="new text"
+    />
+    <button>
+      SEARCH
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<SearchForm/> checks search on button click 1`] = `
+<div>
+  <div
+    class="search-container"
+  >
+    <input
+      type="text"
+      value="new text"
+    />
+    <button>
+      SEARCH
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<SearchForm/> checks search on enter key press 1`] = `
+<div>
+  <div
+    class="search-container"
+  >
+    <input
+      type="text"
+      value="new text"
+    />
+    <button>
+      SEARCH
+    </button>
+  </div>
+</div>
+`;
