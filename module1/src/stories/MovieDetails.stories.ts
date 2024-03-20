@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import {MovieDetails} from "../components/MovieDetails/movie-details";
-import {MOVIES} from "../constants/сonstants";
+import type { Meta, StoryObj } from "@storybook/react";
+import { MovieDetails } from "../components/MovieDetails/movie-details";
+import { MOVIES } from "../constants/movies-data";
 
 const meta = {
-  title: 'Netflix/SortControl',
+  title: "Netflix/SortControl",
   component: MovieDetails,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
   args: {
     movie: MOVIES[0],
@@ -24,4 +24,3 @@ export const MovieDetail: Story = {
     movie: MOVIES[0],
   },
 };
-

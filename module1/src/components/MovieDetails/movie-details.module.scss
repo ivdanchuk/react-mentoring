@@ -1,31 +1,31 @@
-.movie-details {
+.movieDetails {
   display: flex;
   align-items: flex-start;
 
-  .movie-details__poster {
+  .movieDetailsPoster {
     margin-right: 2em;
   }
 
-  .movie-details__info {
+  .movieDetailsInfo {
 
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 1em;
     align-items: center;
 
-    .movie-details__year,
-    .movie-details__rating,
-    .movie-details__genre {
+    .movieDetailsYear,
+    .movieDetailsRating,
+    .movieDetailsGenre {
       display: inline-block;
       margin: 0;
     }
 
-    .movie-details__title {
+    .movieDetailsTitle {
       grid-column: span 2;
       margin: 0;
     }
 
-    .movie-details__description {
+    .movieDetailsDescription {
       grid-column: span 2;
       margin-top: 1em;
     }
