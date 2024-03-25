@@ -1,28 +1,21 @@
-// The Dialog component should accept the following props:
-//     a string or JSX for title
-//     JSX for body content in "children" property
-// a callback function for handling clicks on close button (×) in the header
+import React, { MouseEventHandler } from "react";
+
+import styles from "./dialog.module.scss";
+
 interface IDialog {
-    title: string,
-    onClose: Function,
-    children: JSX.Element;
+  title: string;
+  onClose: MouseEventHandler<HTMLButtonElement>;
+  children: React.ReactElement;
 }
 
-export default function Dialog({title, onClose, children}: IDialog) {
-
-    let handleClose = () => {
-        onClose();
-    };
-
-    return (
-        <>
-            {/*<FocusTrap>*/}
-            <div className="dialog-content">
-                {title}
-                <button onClick={handleClose}>&times;</button>
-                {children}
-            </div>
-            {/*</FocusTrap>,*/}
-        </>
-    );
+export default function Dialog({ title, onClose, children }: IDialog) {
+  return (
+    <>
+      <div className={styles.modal}>
+        {title}
+        <button onClick={onClose}>&times;</button>
+        {children}
+      </div>
+    </>
+  );
 }

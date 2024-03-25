@@ -1,5 +1,6 @@
-import { GENRES, IMovie } from "../../constants";
 import { useEffect, useState } from "react";
+
+import { GENRES, IMovie } from "../../constants";
 
 type MovieFormProps = {
   initialMovieInfo?: IMovie;
@@ -48,6 +49,7 @@ export default function MovieForm({
 
   return (
     <>
+      {/*<FocusTrap>*/}
       <form onSubmit={handleSubmit}>
         <input name="title" value={movieInfo.title} onChange={handleChange} />
         <select
@@ -68,6 +70,7 @@ export default function MovieForm({
         />
         <button type="submit">Submit</button>
       </form>
+      {/*</FocusTrap>*/}
     </>
   );
 }

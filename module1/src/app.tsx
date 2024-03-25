@@ -35,10 +35,9 @@ function App() {
     <>
       <div className="header">
         <button onClick={() => setShowModal(true)}>ADD MOVIE</button>
-
         {showModal &&
           createPortal(
-            <Dialog onClose={() => setShowModal(false)} title={"title"}>
+            <Dialog onClose={() => setShowModal(false)} title={"ADD MOVIE"}>
               <MovieForm onSubmit={() => {}} />
             </Dialog>,
             document.body,
