@@ -1,10 +1,6 @@
 import { GENRES, IMovie } from "../../constants";
-import { useEffect, useState } from "react"; // The component should render a form element with form controls to add or edit a movie.
+import { useEffect, useState } from "react";
 
-// The component should render a form element with form controls to add or edit a movie.
-//     The MovieForm component should accept the following props:
-//     an optional object for initial movie info. Later, when we will implement "add movie" use case, we will not pass this property
-// a callback function for handling form submit
 type MovieFormProps = {
   initialMovieInfo?: IMovie;
   onSubmit: Function;
