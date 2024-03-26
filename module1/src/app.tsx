@@ -39,6 +39,7 @@ function App() {
           createPortal(
             <Dialog onClose={() => setShowModal(false)} title={"ADD MOVIE"}>
               <MovieForm onSubmit={() => {}} />
+              {/*<MovieForm initialMovieInfo={MOVIES[0]} onSubmit={() => {}} />*/}
             </Dialog>,
             document.body,
           )}

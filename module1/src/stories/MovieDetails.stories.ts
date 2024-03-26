@@ -3,7 +3,7 @@ import { MovieDetails } from "../components/MovieDetails/movie-details";
 import { MOVIES } from "../constants/movies-data";
 
 const meta = {
-  title: "Netflix/SortControl",
+  title: "Netflix/MovieDetails",
   component: MovieDetails,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],

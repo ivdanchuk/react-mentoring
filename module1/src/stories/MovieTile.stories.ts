@@ -4,7 +4,7 @@ import { MovieTile } from "../components/MovieTile/movie-tile";
 import { MOVIES } from "../constants/movies-data";
 
 const meta = {
-  title: "Netflix/SortControl",
+  title: "Netflix/MovieTile",
   component: MovieTile,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
