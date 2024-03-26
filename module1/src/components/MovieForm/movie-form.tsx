@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import { GENRES, IMovie } from "../../constants";
 
+import styles from "./movie-form.module.scss";
+
 type MovieFormProps = {
   initialMovieInfo?: IMovie;
   onSubmit: Function;
@@ -49,28 +51,59 @@ export default function MovieForm({
 
   return (
     <>
-      {/*<FocusTrap>*/}
-      <form onSubmit={handleSubmit}>
-        <input name="title" value={movieInfo.title} onChange={handleChange} />
-        <select
-          name="genres"
-          value={movieInfo.genres[0]}
-          onChange={handleGenresChange}
-        >
-          {GENRES.map((genre, index) => (
-            <option key={index} value={genre}>
-              {genre}
-            </option>
-          ))}
-        </select>
-        <input
-          name="releaseYear"
-          value={movieInfo.releaseYear}
-          onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      {/*</FocusTrap>*/}
+      <div className={styles.movieForm}>
+        {/*<FocusTrap>*/}
+        <form onSubmit={handleSubmit}>
+          <div className={styles.movieDetails}>
+            <div className={styles.inputBox}>
+              <span className={styles.details}>Title</span>
+              <input
+                name="title"
+                value={movieInfo.title}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className={styles.inputBox}>
+              <span className={styles.details}>Release Year</span>
+              <input
+                name="releaseYear"
+                value={movieInfo.releaseYear}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className={styles.inputBox}>
+              <span className={styles.details}>RATING </span>
+              <input
+                name="rating"
+                placeholder={"7.8"}
+                value={movieInfo.rating}
+                onChange={handleChange}
+              />
+            </div>
+            <div className={styles.inputBox}>
+              <span className={styles.details}>GENRE </span>
+
+              <select
+                name="genres"
+                value={movieInfo.genres[0]}
+                onChange={handleGenresChange}
+              >
+                {GENRES.map((genre, index) => (
+                  <option key={index} value={genre}>
+                    {genre}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+        {/*</FocusTrap>*/}
+      </div>
     </>
   );
 }
