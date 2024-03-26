@@ -4,15 +4,15 @@ import { GENRES, IMovie } from "../../constants";
 
 import styles from "./movie-form.module.scss";
 
-type MovieFormProps = {
+export interface IMovieFormProps {
   initialMovieInfo?: IMovie;
   onSubmit: Function;
-};
+}
 
 export default function MovieForm({
   initialMovieInfo,
   onSubmit,
-}: MovieFormProps) {
+}: IMovieFormProps) {
   const [movieInfo, setMovieInfo] = useState<IMovie>(
     initialMovieInfo ?? {
       poster: "",
