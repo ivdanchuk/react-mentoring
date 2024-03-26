@@ -11,6 +11,8 @@ export interface IMovie {
   genres: string[];
   rating: string;
   description: string;
+  url?: string;
+  runtime?: string;
 }
 
 export type SortOptionsType = "Release Date" | "Title";

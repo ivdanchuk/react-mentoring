@@ -14,6 +14,7 @@ form .movieDetails .inputBox {
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
+  color: #f65261;
 }
 
 .movieDetails .inputBox input {
@@ -34,5 +35,38 @@ form .movieDetails .inputBox {
   background-color: #424242;
   border: 1px solid #ccc;
   font-size: 16px;
+}
+
+form .description {
+  display: block;
+  width: 100%;
+}
+
+form .description .title {
+  margin-bottom: 10px;
+  display: inline-block;
+  color: #f65261;
+}
+
+form .description textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+  background: #424242;
+}
+
+form .buttons {
+  display: flex;
+  justify-content: end;
+  margin-top: 10px;
+}
+
+.buttons .resetButton {
+  color: black;
+}
+
+.buttons .submitButton {
+  margin-left: 10px;
+  color: #f65261;
 }
 

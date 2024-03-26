@@ -26,6 +26,11 @@ export default function MovieForm({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMovieInfo({ ...movieInfo, [e.target.name]: e.target.value });
   };
+  const handleDescriptionChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    setMovieInfo({ ...movieInfo, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -56,7 +61,7 @@ export default function MovieForm({
         <form onSubmit={handleSubmit}>
           <div className={styles.movieDetails}>
             <div className={styles.inputBox}>
-              <span className={styles.details}>Title</span>
+              <span className={styles.details}>TITLE</span>
               <input
                 name="title"
                 value={movieInfo.title}
@@ -65,10 +70,20 @@ export default function MovieForm({
             </div>
 
             <div className={styles.inputBox}>
-              <span className={styles.details}>Release Year</span>
+              <span className={styles.details}>RELEASE YEAR</span>
               <input
                 name="releaseYear"
                 value={movieInfo.releaseYear}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className={styles.inputBox}>
+              <span className={styles.details}>MOVIE URL </span>
+              <input
+                name="url"
+                placeholder={"https://"}
+                value={movieInfo.url}
                 onChange={handleChange}
               />
             </div>
@@ -82,9 +97,9 @@ export default function MovieForm({
                 onChange={handleChange}
               />
             </div>
+
             <div className={styles.inputBox}>
               <span className={styles.details}>GENRE </span>
-
               <select
                 name="genres"
                 value={movieInfo.genres[0]}
@@ -97,7 +112,33 @@ export default function MovieForm({
                 ))}
               </select>
             </div>
-            <div>
+
+            <div className={styles.inputBox}>
+              <span className={styles.details}>RUNTIME</span>
+              <input
+                name="runtime"
+                placeholder={"minutes"}
+                value={movieInfo.runtime}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className={styles.description}>
+              <span className={styles.title}>OVERVIEW</span>
+              <textarea
+                name="overview"
+                placeholder={"Movie description"}
+                value={movieInfo.description}
+                onChange={handleDescriptionChange}
+              />
+            </div>
+          </div>
+
+          <div className={styles.buttons}>
+            <div className={styles.resetButton}>
+              <button>Reset</button>
+            </div>
+            <div className={styles.submitButton}>
               <button type="submit">Submit</button>
             </div>
           </div>

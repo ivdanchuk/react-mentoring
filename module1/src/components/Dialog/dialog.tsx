@@ -15,7 +15,7 @@ export default function Dialog({ title, onClose, children }: IDialogProps) {
         <div className={styles.closeButton}>
           <button onClick={onClose}>X</button>
         </div>
-        <h1>{title}</h1>
+        <div className={styles.title}>{title}</div>
         {children}
       </div>
     </>
