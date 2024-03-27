@@ -1,6 +1,5 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-import Dialog, { IDialogProps } from "./dialog";
+import { Dialog, IDialogProps } from "./dialog";
 import { fn } from "@storybook/test";
 
 afterEach(cleanup);

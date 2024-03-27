@@ -26,13 +26,17 @@ export const SearchForm = ({ initialQuery, onSearch }: ISearchProps) => {
 
   return (
     <div className={styles.searchContainer}>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => handleInputChange(e)}
-        onKeyDownCapture={(e) => handlePressEnter(e)}
-      />
-      <button onClick={handleSearch}>SEARCH</button>
+      <div className={styles.inputSearch}>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => handleInputChange(e)}
+          onKeyDownCapture={(e) => handlePressEnter(e)}
+        />
+      </div>
+      <div className={styles.searchButton} onClick={() => handleSearch}>
+        SEARCH
+      </div>
     </div>
   );
 };

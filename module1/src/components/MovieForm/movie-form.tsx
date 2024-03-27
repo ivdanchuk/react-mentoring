@@ -9,10 +9,7 @@ export interface IMovieFormProps {
   onSubmit: Function;
 }
 
-export default function MovieForm({
-  initialMovieInfo,
-  onSubmit,
-}: IMovieFormProps) {
+export const MovieForm = ({ initialMovieInfo, onSubmit }: IMovieFormProps) => {
   const [movieInfo, setMovieInfo] = useState<IMovie>(
     initialMovieInfo ?? {
       poster: "",
@@ -72,6 +69,7 @@ export default function MovieForm({
             <div className={styles.inputBox}>
               <span className={styles.details}>RELEASE YEAR</span>
               <input
+                type="date"
                 name="releaseYear"
                 value={movieInfo.releaseYear}
                 onChange={handleChange}
@@ -147,4 +145,4 @@ export default function MovieForm({
       </div>
     </>
   );
-}
+};

@@ -8,7 +8,7 @@ export interface IDialogProps {
   children: React.ReactElement;
 }
 
-export default function Dialog({ title, onClose, children }: IDialogProps) {
+export const Dialog = ({ title, onClose, children }: IDialogProps) => {
   return (
     <>
       <div className={styles.modalForm}>
@@ -20,4 +20,4 @@ export default function Dialog({ title, onClose, children }: IDialogProps) {
       </div>
     </>
   );
-}
+};

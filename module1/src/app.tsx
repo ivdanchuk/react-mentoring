@@ -1,14 +1,18 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 
 import { GENRES, IMovie, MOVIES, SortOptionsType } from "./constants";
-import { GenreSelector, MovieTile, SearchForm } from "./components";
-import { MovieDetails } from "./components/MovieDetails/movie-details";
-import { SortControl } from "./components/SortControl/sort-control";
-import Dialog from "./components/Dialog/dialog";
-import { createPortal } from "react-dom";
-import MovieForm from "./components/MovieForm/movie-form";
+import {
+  Dialog,
+  GenreSelector,
+  MovieDetails,
+  MovieForm,
+  MovieTile,
+  SearchForm,
+  SortControl,
+} from "./components";
 
-import "./app.scss";
+import styles from "./app.module.scss";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<string>("Comedy");
@@ -33,23 +37,24 @@ function App() {
 
   return (
     <>
-      <div className="header">
-        <button onClick={() => setShowModal(true)}>ADD MOVIE</button>
-        {showModal &&
-          createPortal(
-            <Dialog onClose={() => setShowModal(false)} title={"ADD MOVIE"}>
-              <MovieForm onSubmit={() => {}} />
-              {/*<MovieForm initialMovieInfo={MOVIES[0]} onSubmit={() => {}} />*/}
-            </Dialog>,
-            document.body,
-          )}
-
+      <div className={styles.header}>
+        <div className={styles.addMovie}>
+          <button onClick={() => setShowModal(true)}>ADD MOVIE</button>
+          {showModal &&
+            createPortal(
+              <Dialog onClose={() => setShowModal(false)} title={"ADD MOVIE"}>
+                <MovieForm onSubmit={() => {}} />
+                {/*<MovieForm initialMovieInfo={MOVIES[0]} onSubmit={() => {}} />*/}
+              </Dialog>,
+              document.body,
+            )}
+        </div>
         <div>
           <SearchForm initialQuery="" onSearch={handleSearch} />
           <MovieDetails movie={currentMovie} />
         </div>
       </div>
-      <div>
+      <div className={styles.genres}>
         <GenreSelector
           genres={GENRES}
           selectedGenre={selectedGenre}

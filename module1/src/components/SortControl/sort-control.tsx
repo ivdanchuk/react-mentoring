@@ -1,5 +1,7 @@
 import { SortOptionsType } from "../../constants";
 
+import styles from "./sort-control.module.scss";
+
 export interface ISortControlProps {
   sortedBy: SortOptionsType;
   onSelectChange: Function;
@@ -10,17 +12,17 @@ export const SortControl = ({
   onSelectChange,
 }: ISortControlProps) => {
   return (
-    <div className="movie-genre">
-      <label>
-        Sort by
-        <select
-          value={sortedBy}
-          onChange={(event) => onSelectChange(event.target.value)}
-        >
-          <option value="Release Date">Release Date</option>
-          <option value="Title">Title</option>
-        </select>
-      </label>
+    <div className={styles.sortContainer}>
+      <label className={styles.sortByLabel}>SORT BY</label>
+
+      <select
+        className={styles.selectInputBox}
+        value={sortedBy}
+        onChange={(event) => onSelectChange(event.target.value)}
+      >
+        <option value="RELEASE DATE">Release Date</option>
+        <option value="TITLE">Title</option>
+      </select>
     </div>
   );
 };

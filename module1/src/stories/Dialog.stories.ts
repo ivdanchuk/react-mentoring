@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import Dialog from "../components/Dialog/dialog";
-import MovieForm from "../components/MovieForm/movie-form";
+import { Dialog, MovieForm } from "../components";
 
 const meta = {
   title: "Netflix/Dialog",

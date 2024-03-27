@@ -1,6 +1,6 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import MovieForm, { IMovieFormProps } from "./movie-form";
+import { IMovieFormProps, MovieForm } from "./movie-form";
 import { fn } from "@storybook/test";
 
 afterEach(cleanup);
