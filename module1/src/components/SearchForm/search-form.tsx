@@ -1,35 +1,42 @@
-import {useState} from "react";
-import "./search-form.scss"
+import React, { ChangeEvent, useState } from "react";
+
+import styles from "./search-form.module.scss";
 
 interface ISearchProps {
-    initialQuery: string,
-    onSearch: Function
+  initialQuery: string;
+  onSearch: Function;
 }
-export const SearchForm = ({initialQuery, onSearch}:ISearchProps) => {
-    const [query, SetQuery] = useState(initialQuery || "Search movie ...");
-    let handleInputChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-        SetQuery(event.target.value);
-    };
 
-    let handleSearch = () => {
-        onSearch && onSearch(query);
-    };
+export const SearchForm = ({ initialQuery, onSearch }: ISearchProps) => {
+  const [query, SetQuery] = useState(initialQuery || "Search movie ...");
 
-    let handlePressEnter = ({ key}:React.KeyboardEvent) => {
-        if (key === "Enter") {
-            handleSearch();
-        }
-    };
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    SetQuery(event.target.value);
+  };
 
-    return (
-        <div className="search-container">
-            <input
-                type="text"
-                value={query}
-                onChange={handleInputChange}
-                onKeyDownCapture={(e) => handlePressEnter(e)}
-            />
-            <button onClick={handleSearch}>SEARCH</button>
-        </div>
-    );
-}
+  const handlePressEnter = ({ key }: React.KeyboardEvent) => {
+    if (key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  const handleSearch = () => {
+    onSearch && onSearch(query);
+  };
+
+  return (
+    <div className={styles.searchContainer}>
+      <div className={styles.inputSearch}>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => handleInputChange(e)}
+          onKeyDownCapture={(e) => handlePressEnter(e)}
+        />
+      </div>
+      <div className={styles.searchButton} onClick={() => handleSearch}>
+        SEARCH
+      </div>
+    </div>
+  );
+};

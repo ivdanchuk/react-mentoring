@@ -1,45 +1,86 @@
-import React, {useState} from 'react';
-import './app.scss';
-import {GENRES, IMovie, MOVIES, SortOptionsType} from "./constants/сonstants";
-import {SearchForm, GenreSelector, MovieTile} from "./components";
-import {MovieDetails} from "./components/MovieDetails/movie-details";
-import {SortControl} from "./components/SortControl/sort-control";
+import React, { useState } from "react";
+import { createPortal } from "react-dom";
+
+import { GENRES, IMovie, MOVIES, SortOptionsType } from "./constants";
+import {
+  Dialog,
+  GenreSelector,
+  MovieDetails,
+  MovieForm,
+  MovieTile,
+  SearchForm,
+  SortControl,
+} from "./components";
+
+import styles from "./app.module.scss";
 
 function App() {
-    const [selectedGenre, setSelectedGenre] = useState<string>("Comedy");
-    const [selectedSorting, setSelectedSorting] = useState<SortOptionsType>("Release Date");
-    const [currentMovie, setCurrentMovie] = useState<IMovie | null>(null);
+  const [selectedGenre, setSelectedGenre] = useState<string>("Comedy");
+  const [selectedSorting, setSelectedSorting] =
+    useState<SortOptionsType>("Release Date");
+  const [currentMovie, setCurrentMovie] = useState<IMovie | null>(null);
+  const [showModal, setShowModal] = useState(false);
 
-    const handleMovieClick = (movie: IMovie) => {
-        setCurrentMovie(movie);
-    };
-    let handleSearch = (query: string) => {
-    };
+  const handleMovieClick = (movie: IMovie) => {
+    setCurrentMovie(movie);
+  };
 
-    let handleGenreSelect = (genre: string) => {
-        setSelectedGenre(genre);
-    };
-    let handleSortingSelect = (sortOption: SortOptionsType) => {
-        setSelectedSorting(sortOption);
-    };
+  const handleSortingSelect = (sortOption: SortOptionsType) => {
+    setSelectedSorting(sortOption);
+  };
 
-    return (
-        <div>
-            <div className="header" >
-                <SearchForm initialQuery="" onSearch={handleSearch}/>
-                <MovieDetails movie={currentMovie}/>
-            </div>
-            <div >
-                <GenreSelector
-                    genres={GENRES}
-                    selectedGenre={selectedGenre}
-                    onSelect={handleGenreSelect}
-                />
-                <SortControl sortedBy={selectedSorting} onSelectChange={handleSortingSelect}/>
-            </div>
-            <MovieTile movies={MOVIES} handleClick={handleMovieClick}/>
+  const handleSearch = (query: string) => {};
+
+  const handleGenreSelect = (genre: string) => {
+    setSelectedGenre(genre);
+  };
+
+  function resolveMovies(sortBy: "Release Date" | "Title") {
+    if (sortBy === "Title") {
+      return MOVIES.sort((a, b) => a.title.localeCompare(b.title));
+    }
+    return MOVIES.sort((a, b) => a.releaseYear - b.releaseYear);
+  }
+
+  return (
+    <>
+      <div className={styles.header}>
+        <div className={styles.addMovie}>
+          <button onClick={() => setShowModal(true)}>ADD MOVIE</button>
+          {showModal &&
+            createPortal(
+              <Dialog onClose={() => setShowModal(false)} title={"ADD MOVIE"}>
+                <MovieForm onSubmit={() => {}} />
+              </Dialog>,
+              document.body,
+            )}
         </div>
-    );
+        <div>
+          <SearchForm initialQuery="" onSearch={handleSearch} />
+          <MovieDetails movie={currentMovie} />
+        </div>
+      </div>
+
+      <div className={styles.genres}>
+        <GenreSelector
+          genres={GENRES}
+          selectedGenre={selectedGenre}
+          onSelect={handleGenreSelect}
+        />
+        <SortControl
+          sortedBy={selectedSorting}
+          onSelectChange={handleSortingSelect}
+        />
+      </div>
+
+      <div className={styles.movieTileContainer}>
+        <MovieTile
+          movies={resolveMovies(selectedSorting)}
+          handleClick={handleMovieClick}
+        />
+      </div>
+    </>
+  );
 }
 
 export default App;

@@ -1,17 +1,25 @@
-.search-container {
+.searchContainer {
+  position: relative;
+  top: 100px;
+  justify-content: center;
   display: flex;
   align-items: center;
 }
 
-.search-container-input {
+.searchContainer .inputSearch input {
+  width: 300px;
   margin-right: 10px;
-  background-color: #424242;
-  color: white;
   border: none;
+  height: 35px;
+  background-color: #424242;
 }
 
-.search-container-button {
-  background-color: #f65261;
+.searchContainer .searchButton {
   border: none;
   color: white;
+  width: 150px;
+  background-color: #f65261;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
 }

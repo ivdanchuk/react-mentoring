@@ -1,0 +1,21 @@
+.sortContainer {
+  width: auto;
+  display: flex;
+  align-items: center;
+
+}
+
+.sortContainer .sortByLabel {
+  height: 40px;
+  line-height: 40px;
+  color: #555555
+}
+
+.sortContainer .selectInputBox {
+  height: 40px;
+  background: #424242;
+  color: white;
+  margin-left: 20px;
+  font-size: 18px;
+}
+

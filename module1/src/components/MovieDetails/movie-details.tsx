@@ -1,27 +1,29 @@
-import {IMovie} from "../../constants/сonstants";
-import './movie-details.scss';
+import { IMovie } from "../../constants";
+
+import styles from "./movie-details.module.scss";
+
 export interface Props {
-    movie: IMovie | null;
+  movie: IMovie | null;
 }
 
-export const MovieDetails = ({movie}: Props) => {
-    if (!movie) {
-        return null;
-    }
-    return (
-        <div className="movie-details">
-            <img
-                src={movie?.poster}
-                alt={`${movie.title} poster`}
-                className="movie-details__poster"
-            />
-            <div className="movie-details__info">
-                <h2 className="movie-details__title">{movie.title}</h2>
-                <p className="movie-details__year">{movie.releaseYear}</p>
-                <p className="movie-details__rating">{movie.rating}</p>
-                <p className="movie-details__genre">{movie.genres.join(", ")}</p>
-                <p className="movie-details__description">{movie.description}</p>
-            </div>
-        </div>
-    );
-}
+export const MovieDetails = ({ movie }: Props) => {
+  if (!movie) {
+    return null;
+  }
+  return (
+    <div className={styles.movieDetails}>
+      <img
+        src={movie?.poster}
+        alt={`${movie.title} poster`}
+        className={styles.movieDetailsPoster}
+      />
+      <div className={styles.movieDetailsInfo}>
+        <h2 className={styles.movieDetailsTitle}>{movie.title}</h2>
+        <p>{movie.releaseYear}</p>
+        <p>{movie.rating}</p>
+        <p>{movie.genres.join(", ")}</p>
+        <p>{movie.description}</p>
+      </div>
+    </div>
+  );
+};
