@@ -14,7 +14,7 @@ export const MovieForm = ({ initialMovieInfo, onSubmit }: IMovieFormProps) => {
     initialMovieInfo ?? {
       poster: "",
       title: "",
-      releaseYear: "",
+      releaseYear: 0,
       genres: [],
       description: "",
       rating: "",
@@ -39,7 +39,7 @@ export const MovieForm = ({ initialMovieInfo, onSubmit }: IMovieFormProps) => {
       initialMovieInfo ?? {
         poster: "",
         title: "",
-        releaseYear: "",
+        releaseYear: 0,
         genres: [],
         description: "",
         rating: "",
@@ -141,7 +141,6 @@ export const MovieForm = ({ initialMovieInfo, onSubmit }: IMovieFormProps) => {
             </div>
           </div>
         </form>
-        {/*</FocusTrap>*/}
       </div>
     </>
   );

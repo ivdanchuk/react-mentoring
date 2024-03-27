@@ -7,7 +7,7 @@ import { MovieDetails } from "./movie-details"; // assuming this is the location
 const stubMovie = {
   poster: "test-poster",
   title: "test-title",
-  releaseYear: "test-year",
+  releaseYear: 2024,
   rating: "test-rating",
   genres: ["test-genre1", "test-genre2"],
   description: "test-description",

@@ -28,7 +28,7 @@ export const EditMovieDialog: Story = {
       initialMovieInfo: {
         poster: "./img/pulp-fiction.png",
         title: "Pulp Fiction",
-        releaseYear: "2004",
+        releaseYear: 2004,
         genres: ["Action"],
         rating: "5.0",
         description: "some decr",

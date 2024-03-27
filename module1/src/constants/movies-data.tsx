@@ -4,8 +4,8 @@ export const GENRES = ["ALL", "Crime", "Comedy", "Drama", "Horror"];
 export const MOVIES: IMovie[] = [
   {
     poster: "./img/pulp-fiction.png",
-    title: "Pulp Fiction",
-    releaseYear: "2004",
+    title: "aaa",
+    releaseYear: 2005,
     genres: ["Action"],
     rating: "5.0",
     description:
@@ -15,8 +15,8 @@ export const MOVIES: IMovie[] = [
   },
   {
     poster: "./img/kill-bill.png",
-    title: "Bill: Vol2",
-    releaseYear: "1994",
+    title: "ccc",
+    releaseYear: 2004,
     genres: ["Oscar winning Movie"],
     rating: "8.0",
     description:

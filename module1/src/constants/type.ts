@@ -7,7 +7,7 @@ export interface IMovieTileProps {
 export interface IMovie {
   poster: string;
   title: string;
-  releaseYear: string;
+  releaseYear: number;
   genres: string[];
   rating: string;
   description: string;

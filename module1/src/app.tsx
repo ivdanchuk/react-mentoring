@@ -25,15 +25,22 @@ function App() {
     setCurrentMovie(movie);
   };
 
+  const handleSortingSelect = (sortOption: SortOptionsType) => {
+    setSelectedSorting(sortOption);
+  };
+
   const handleSearch = (query: string) => {};
 
   const handleGenreSelect = (genre: string) => {
     setSelectedGenre(genre);
   };
 
-  const handleSortingSelect = (sortOption: SortOptionsType) => {
-    setSelectedSorting(sortOption);
-  };
+  function resolveMovies(sortBy: "Release Date" | "Title") {
+    if (sortBy === "Title") {
+      return MOVIES.sort((a, b) => a.title.localeCompare(b.title));
+    }
+    return MOVIES.sort((a, b) => a.releaseYear - b.releaseYear);
+  }
 
   return (
     <>
@@ -44,7 +51,6 @@ function App() {
             createPortal(
               <Dialog onClose={() => setShowModal(false)} title={"ADD MOVIE"}>
                 <MovieForm onSubmit={() => {}} />
-                {/*<MovieForm initialMovieInfo={MOVIES[0]} onSubmit={() => {}} />*/}
               </Dialog>,
               document.body,
             )}
@@ -68,7 +74,10 @@ function App() {
       </div>
 
       <div className={styles.movieTileContainer}>
-        <MovieTile movies={MOVIES} handleClick={handleMovieClick} />
+        <MovieTile
+          movies={resolveMovies(selectedSorting)}
+          handleClick={handleMovieClick}
+        />
       </div>
     </>
   );
