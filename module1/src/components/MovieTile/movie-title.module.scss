@@ -1,19 +1,20 @@
-.movie-tile {
+.movieTileContainer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.movie-item {
+.movieItem {
   width: 33.33%;
   padding: 10px;
   box-sizing: border-box;
 }
 
 .poster {
-  width: 300px;
+  width: 400px;
 }
 
-.movie-details {
+.movieDetails {
   display: flex;
   justify-content: space-between;
 }

@@ -54,6 +54,7 @@ function App() {
           <MovieDetails movie={currentMovie} />
         </div>
       </div>
+
       <div className={styles.genres}>
         <GenreSelector
           genres={GENRES}
@@ -65,7 +66,10 @@ function App() {
           onSelectChange={handleSortingSelect}
         />
       </div>
-      <MovieTile movies={MOVIES} handleClick={handleMovieClick} />
+
+      <div className={styles.movieTileContainer}>
+        <MovieTile movies={MOVIES} handleClick={handleMovieClick} />
+      </div>
     </>
   );
 }
