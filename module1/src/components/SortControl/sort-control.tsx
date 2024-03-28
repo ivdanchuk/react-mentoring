@@ -23,8 +23,8 @@ export const SortControl = ({
           onSelectChange(event.target.value as "Release Date" | "Title")
         }
       >
-        <option value="RELEASE DATE">Release Date</option>
-        <option value="TITLE">Title</option>
+        <option value="Release Date">Release Date</option>
+        <option value="Title">Title</option>
       </select>
     </div>
   );

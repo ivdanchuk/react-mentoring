@@ -27,6 +27,7 @@ function App() {
 
   const handleSortingSelect = (sortOption: SortOptionsType) => {
     setSelectedSorting(sortOption);
+    resolveMovies(sortOption);
   };
 
   const handleSearch = (query: string) => {};
@@ -37,9 +38,12 @@ function App() {
 
   function resolveMovies(sortBy: "Release Date" | "Title") {
     if (sortBy === "Title") {
+      console.log("Sort by " + sortBy);
       return MOVIES.sort((a, b) => a.title.localeCompare(b.title));
+    } else {
+      console.log("Sort by " + sortBy);
+      return MOVIES.sort((a, b) => a.releaseYear - b.releaseYear);
     }
-    return MOVIES.sort((a, b) => a.releaseYear - b.releaseYear);
   }
 
   return (
@@ -74,10 +78,7 @@ function App() {
       </div>
 
       <div className={styles.movieTileContainer}>
-        <MovieTile
-          movies={resolveMovies(selectedSorting)}
-          handleClick={handleMovieClick}
-        />
+        <MovieTile movies={MOVIES} handleClick={handleMovieClick} />
       </div>
     </>
   );
